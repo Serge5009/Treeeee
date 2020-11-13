@@ -1,0 +1,5 @@
+﻿  Source.cpp
+D:\College\GAME102 - Programming Fundamentals\Treeeee\Treeeee\Source.cpp(18,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\College\GAME102 - Programming Fundamentals\Treeeee\Treeeee\Source.cpp(71,45): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+D:\College\GAME102 - Programming Fundamentals\Treeeee\Treeeee\Source.cpp(51): warning C4715: start: значение возвращается не при всех путях выполнения
+  Treeeee.vcxproj -> D:\College\GAME102 - Programming Fundamentals\Treeeee\Debug\Treeeee.exe
