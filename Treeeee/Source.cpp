@@ -10,38 +10,59 @@
 
 using namespace std;
 
-void DrawMenu(int NUM_TR, Treeeee TreeToPass[]);
+int DrawMenu(int NUM_TR, Treeeee TreeToPass[]);
 void DrawTopLine();
 void DrawTreeeees(int NUM, Treeeee tree[]);
+int DrawDialogue();
+void DrawTree(int N, Treeeee tree[]);
 
 	// Global Variables	//
 
-int gMoney = 0;	//	Amount of money
-int gDay = 0;	//	Day # 
+int gMoney = 10;	//	Amount of money
+int gDay = 1;	//	Day # 
 
 	//	MAIN	//
 
 int main()
 {
-	const int TREEEEE_AMOUNT = 12;	//	Defines how many treeeees will be in the game
+	const int TREEEEE_AMOUNT = 10;	//	Defines how many treeeees will be in the game
 	const float FAIL_CHANCE = 1;	//	Game difficulty (0 - creative mode, 1 - normal, more - hard)
 
 	Treeeee Tree[TREEEEE_AMOUNT];	//	Creating out treeeees, but their size is 0
 
 	Tree[0].Size = 5;	// DEBUG AND TEST LINE
 
-	DrawMenu(TREEEEE_AMOUNT, Tree);
+	while (true)
+	{
+		int PlayerAnswer = DrawMenu(TREEEEE_AMOUNT, Tree);
+		if (PlayerAnswer == -1)
+		{	//	QUIT
+			break;
+		}
+		else if (PlayerAnswer == 0)
+		{	//	Next Day
+			//NextDay();
+		}
+		else if (PlayerAnswer > TREEEEE_AMOUNT)
+		{	//	Wrong value, doing nothing
 
+		}
+		else
+		{	//	Interracting with a tree
+			DrawTree(PlayerAnswer, Tree);
+		}
+	}
 
 
 	return 0;
 }
 
-void DrawMenu(int NUM_TR, Treeeee TreeToPass[])	//	Draws main menu
+int DrawMenu(int NUM_TR, Treeeee TreeToPass[])	//	Draws main menu
 {
-	system("cls");
+	system("cls");	//	Clear console
 	DrawTopLine();
 	DrawTreeeees(NUM_TR, TreeToPass);
+	return DrawDialogue();
 }
 
 void DrawTopLine()	//	Draws line with some info
@@ -73,9 +94,46 @@ void DrawTreeeees(int NUM, Treeeee tree[])	//	Draws all trees in a short form (N
 	}
 }
 
+int DrawDialogue()
+{
+	int Decition = -1;
+	cout << endl << endl << endl;
+	cout << "\tType \"-1\" to quit, \"0\" to skip the day or" << endl;
+	cout << "\tType N of Treeeee to intrerract with: ";
+	cin >> Decition;
+	return Decition;
+}
 
+void DrawTree(int N, Treeeee tree[])
+{
+	int n = N - 1;
+	system("cls");
+	DrawTopLine();
+	//	Drawing the same stuff as in main menu
+	cout << "\tTreeeee " << n + 1 << ":" << endl;
 
+	if (tree[n].Size > 0)
+	{
+		cout << "\033[42m|";	//	Starting symbol of the bar + color
+		for (int N = 0; N < tree[n].Size; N++)
+		{
+			cout << " |";
+		}
+		cout << "\033[40m" << endl;	//	Ending the line + removing color
+	}
+	else
+	{
+		cout << "[NO TREE HERE]" << endl;
+	}
 
+	cout << "\tTreeeee size is " << tree[n].Size << endl;
+	cout << "\tIt exist for " << tree[n].Day << " Days" << endl << endl;
+	
+	int UserInput;
+	cout << "\tPossible actions: " << endl;
+	cout << "\tType N of Treeeee to intrerract with: ";
+	cin >> UserInput;
+}
 
 /*
 OLD CODE TO TAKE PARTS WHEN I NEED IT
