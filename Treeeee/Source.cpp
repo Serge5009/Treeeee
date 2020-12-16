@@ -3,9 +3,88 @@
 #include<cstdlib>
 #include<cmath>
 
+#include "TreeeeeClass.h"
+
+//Serhii Marchenko
+//16.12.2020
+
+using namespace std;
+
+void DrawMenu(int NUM_TR, Treeeee TreeToPass[]);
+void DrawTopLine();
+void DrawTreeeees(int NUM, Treeeee tree[]);
+
+	// Global Variables	//
+
+int gMoney = 0;	//	Amount of money
+int gDay = 0;	//	Day # 
+
+	//	MAIN	//
+
+int main()
+{
+	const int TREEEEE_AMOUNT = 12;	//	Defines how many treeeees will be in the game
+	const float FAIL_CHANCE = 1;	//	Game difficulty (0 - creative mode, 1 - normal, more - hard)
+
+	Treeeee Tree[TREEEEE_AMOUNT];	//	Creating out treeeees, but their size is 0
+
+	Tree[0].Size = 5;	// DEBUG AND TEST LINE
+
+	DrawMenu(TREEEEE_AMOUNT, Tree);
+
+
+
+	return 0;
+}
+
+void DrawMenu(int NUM_TR, Treeeee TreeToPass[])	//	Draws main menu
+{
+	system("cls");
+	DrawTopLine();
+	DrawTreeeees(NUM_TR, TreeToPass);
+}
+
+void DrawTopLine()	//	Draws line with some info
+{
+	cout << "\033[46m";	//	Changing BG color to Cyan
+	cout << "Treeeee                      Money: " << gMoney << "                         Day " << gDay;
+	cout << "\033[40m" << endl;	//	Changing BG color to Black
+}
+
+void DrawTreeeees(int NUM, Treeeee tree[])	//	Draws all trees in a short form (Num + Size)
+{
+	for (int n = 0; n < NUM; n++)	//	Loops through all trees in the array 
+	{
+		cout << "\tTreeeee " << n+1 << ":" << endl;
+			
+		if (tree[n].Size > 0)
+		{
+			cout << "\033[42m|";	//	Starting symbol of the bar + color
+			for (int N = 0; N < tree[n].Size; N++)
+			{
+				cout << " |";
+			}
+			cout << "\033[40m" << endl;	//	Ending the line + removing color
+		}
+		else
+		{
+			cout << "[NO TREE HERE]" << endl;
+		}
+	}
+}
+
+
+
+
+
+/*
+OLD CODE TO TAKE PARTS WHEN I NEED IT
+
+
+
 //Serhii Marchenko (AKA Serge5009)
 //2020.11.13
-//	Thanks to Muhammet Ahmet Polat for participation!
+	//	Thanks to Muhammet Ahmet Polat for participation!
 
 using namespace std;
 
@@ -68,7 +147,7 @@ void Game()				//Main game loop
 	const int TREECOST = 3;
 	while (isGamePlyed) //One day cycle
 	{
-		FailureChance = 100 * pow(1.07, TreeSize) - 100;		//Formula for failure chance
+		FailureChance = 80 * pow(1.07, TreeSize) - 100;		//Formula for failure chance
 		if (FailureChance >= 80)						//Limiting failure chance
 		{
 			FailureChance = 80;
@@ -197,3 +276,5 @@ void Stats(int Planted, int Biggest, int Cut, int Lost, int N, int M)
 	cout << "Your stats:" << endl;
 	cout << "Coming soon!" << endl;
 }
+
+*/
