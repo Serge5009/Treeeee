@@ -1,10 +1,15 @@
 #include "TreeeeeClass.h"
+#include <cmath>
 
 Treeeee::Treeeee()	//	Constructor
 {
 	Size = 0;		//	All trees are created as soon as game starts
 	Day = 0;		//	But they have size of 0
-	WoodCost = 1;	//	So they exist and don't exist at the same time
+					//	So they exist and don't exist at the same time
+
+	WoodCost = 1;		//	The bigger the level the more money you get from cutting a tree
+	Strength = 1;		//	Reduces the chance of loosing tree
+	GrowthSpeed = 1;	//	Increases chance of growing twice faster;
 }
 
 	//	Public functions	//
@@ -28,6 +33,14 @@ void Treeeee::CutTree(int& Money)
 int Treeeee::Calculate()
 {
 	int Result;
-	Result = Size * WoodCost;
+	Result = Size * (1 + 0.2 * WoodCost);
 	return Result;
+}
+
+int Treeeee::FailChance()
+{
+	int Chance; 
+	//	FailureChance = 80 * pow(1.07, TreeSize) - 100;		!!!OLD!!!
+	Chance = 50 * pow(1.07, Size);	//	UNFINISHED	
+	return Chance;
 }

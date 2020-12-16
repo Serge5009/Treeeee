@@ -8,10 +8,14 @@ public:
 
 	int Size;
 	int Day;
-	int WoodCost;
+	
 	/*
 	Different buffs and debuffs and variables for them
 	*/
+
+	int WoodCost;
+	int Strength;
+	int GrowthSpeed;
 
 	void PlantTree(int& Money);
 	void CutTree(int& Money);
@@ -19,5 +23,6 @@ public:
 private:
 
 	int Calculate();
+	int FailChance();
 
 };

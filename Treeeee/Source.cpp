@@ -15,20 +15,23 @@ void DrawTopLine();
 void DrawTreeeees(int NUM, Treeeee tree[]);
 int DrawDialogue();
 void DrawTree(int N, int TREE_COST, Treeeee tree[]);
+void TreeShop();
 
 	// Global Variables	//
 
 int gMoney = 10;	//	Amount of money
 int gDay = 1;	//	Day # 
 
+const int TREEEEE_AMOUNT = 10;	//	Defines how many treeeees will be in the game
+const float FAIL_CHANCE = 1;	//	Game difficulty (0 - creative mode, 1 - normal, more - hard)
+const int TREE_COST = 3;		//	Cost of planting a tree (3 is recomended)
+
+
 	//	MAIN	//
 
 int main()
 {
-	const int TREEEEE_AMOUNT = 10;	//	Defines how many treeeees will be in the game
-	const float FAIL_CHANCE = 1;	//	Game difficulty (0 - creative mode, 1 - normal, more - hard)
-	const int TREE_COST = 3;		//	Cost of planting a tree (3 is recomended)
-
+	
 	Treeeee Tree[TREEEEE_AMOUNT];	//	Creating out treeeees, but their size is 0
 
 	Tree[0].Size = 5;	// DEBUG AND TEST LINE
@@ -134,7 +137,6 @@ void DrawTree(int N, int TREE_COST, Treeeee tree[])
 		cout << "\tTreeeee size is " << tree[n].Size << endl;
 		cout << "\tIt exist for " << tree[n].Day << " Days" << endl << endl;
 
-		
 		cout << "\tPossible actions: " << endl << endl;
 		if (tree[n].Size < 1)	
 		{
@@ -174,12 +176,18 @@ void DrawTree(int N, int TREE_COST, Treeeee tree[])
 	}
 	if (UserInput == 2)	//	Shop
 	{	//	Opening shop
-
+		TreeShop();	//	TBA
 	}
 	if (UserInput == 3)	//	Quit
 	{	//	Just letting to finish the function
 		
 	}
+}
+
+void TreeShop()
+{
+	int UserInput;
+	cin >> UserInput;
 }
 
 /*
