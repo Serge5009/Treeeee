@@ -13,8 +13,8 @@ public:
 	Different buffs and debuffs and variables for them
 	*/
 
-	bool PlantTree();
-	int CutTree();
+	void PlantTree(int& Money);
+	void CutTree(int& Money);
 
 private:
 
