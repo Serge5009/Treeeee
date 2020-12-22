@@ -19,6 +19,7 @@ public:
 
 	void PlantTree(int& Money);
 	void CutTree(int& Money);
+	void Grow();
 
 private:
 

@@ -1,6 +1,5 @@
-﻿  Source.cpp
-  Treeeee.cpp
-D:\College\GAME102 - Programming Fundamentals\Treeeee\Treeeee\Treeeee.cpp(36,16): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-D:\College\GAME102 - Programming Fundamentals\Treeeee\Treeeee\Treeeee.cpp(43,14): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-  Создание кода...
+﻿  Treeeee.cpp
+D:\College\GAME102 - Programming Fundamentals\Treeeee\Treeeee\Treeeee.cpp(38,16): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+D:\College\GAME102 - Programming Fundamentals\Treeeee\Treeeee\Treeeee.cpp(46,32): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+D:\College\GAME102 - Programming Fundamentals\Treeeee\Treeeee\Treeeee.cpp(60,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   Treeeee.vcxproj -> D:\College\GAME102 - Programming Fundamentals\Treeeee\Debug\Treeeee.exe

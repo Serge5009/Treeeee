@@ -1,5 +1,7 @@
 #include "TreeeeeClass.h"
 #include <cmath>
+#include <cstdlib>
+#include <ctime>
 
 Treeeee::Treeeee()	//	Constructor
 {
@@ -41,6 +43,32 @@ int Treeeee::FailChance()
 {
 	int Chance; 
 	//	FailureChance = 80 * pow(1.07, TreeSize) - 100;		!!!OLD!!!
-	Chance = 50 * pow(1.07, Size);	//	UNFINISHED	
+	Chance = 50 * pow(1.07, Size) - 70;	//	UNFINISHED	
+	if (Chance < 10)
+	{
+		Chance = 10;
+	}
+	else if (Chance > 80)
+	{
+		Chance = 80;
+	}
 	return Chance;
+}
+
+void Treeeee::Grow()
+{
+	srand(time(0));
+	if (Size > 0)
+	{
+		if (rand() % 100 + 1 - FailChance() < 0)
+		{
+			Size = 0;
+			Day = 0;
+		}
+		else
+		{
+			Size++;
+			Day++;
+		}
+	}
 }
