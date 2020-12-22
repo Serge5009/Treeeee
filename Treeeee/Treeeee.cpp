@@ -43,7 +43,7 @@ int Treeeee::FailChance()
 {
 	int Chance; 
 	//	FailureChance = 80 * pow(1.07, TreeSize) - 100;		!!!OLD!!!
-	Chance = 50 * pow(1.07, Size) - 70;	//	UNFINISHED	
+	Chance = 100 * pow(1.09, Size) - 100;	//	UNFINISHED	
 	if (Chance < 10)
 	{
 		Chance = 10;
@@ -55,12 +55,16 @@ int Treeeee::FailChance()
 	return Chance;
 }
 
-void Treeeee::Grow()
+int Treeeee::GetFailChance()
 {
-	srand(time(0));
+	return FailChance();
+}
+
+void Treeeee::Grow(int Ran)
+{
 	if (Size > 0)
 	{
-		if (rand() % 100 + 1 - FailChance() < 0)
+		if (Ran - FailChance() < 0)
 		{
 			Size = 0;
 			Day = 0;

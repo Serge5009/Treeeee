@@ -20,7 +20,7 @@ void NextDay(Treeeee tree[]);
 
 	// Global Variables	//
 
-int gMoney = 10;	//	Amount of money
+int gMoney = 1000;	//	Amount of money	//	!!! Default amount is 10 !!!
 int gDay = 1;	//	Day # 
 
 const int TREEEEE_AMOUNT = 10;	//	Defines how many treeeees will be in the game
@@ -32,7 +32,8 @@ const int TREE_COST = 3;		//	Cost of planting a tree (3 is recomended)
 
 int main()
 {
-	
+	srand(time(NULL));
+
 	Treeeee Tree[TREEEEE_AMOUNT];	//	Creating out treeeees, but their size is 0
 
 	Tree[0].Size = 5;	// DEBUG AND TEST LINE
@@ -139,6 +140,10 @@ void DrawTree(int N, int TREE_COST, Treeeee tree[])
 		cout << "\tTreeeee size is " << tree[n].Size << endl;
 		cout << "\tIt exist for " << tree[n].Day << " Days" << endl << endl;
 
+		cout << endl;
+
+		cout << "Fail chance is " << tree[n].GetFailChance() << "%" << endl;
+
 		cout << "\tPossible actions: " << endl << endl;
 		if (tree[n].Size < 1)	
 		{
@@ -194,10 +199,12 @@ void TreeShop()
 
 void NextDay(Treeeee tree[])
 {
+	int Rand;
 	gDay++;
 	for (int n = 0; n < TREEEEE_AMOUNT; n++)
 	{
-		tree[n].Grow();
+		Rand = rand() % 100 + 1;
+		tree[n].Grow(Rand);
 	}
 }
 

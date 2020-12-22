@@ -19,8 +19,9 @@ public:
 
 	void PlantTree(int& Money);
 	void CutTree(int& Money);
-	void Grow();
+	void Grow(int Ran);
 
+	int GetFailChance();
 private:
 
 	int Calculate();
